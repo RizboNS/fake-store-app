@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div *ngFor="let product of products; let i = index" class="product">
+    <div class="product-title">
+      <h3>{{ product.title }}</h3>
+      <div class="product-price">{{ product.price | currency }}</div>
+    </div>
+    <div class="product-body">
+      <div><img [src]="product.image" alt="product image" /></div>
+      <div class="product-call-to-action">
+        <div class="product-quantity">
+          <i class="fa-solid fa-minus" (click)="removeOne(i)"></i>
+          <span class="selected-qty">{{ product.qtySelected }}</span>
+          <i class="fa-solid fa-plus" (click)="addOne(i)"></i>
+        </div>
+        <button class="btn btn-primary" type="submit">Add to cart</button>
+      </div>
+    </div>
+    <p>{{ product.description }}</p>
+    <div class="product-footer">
+      <span>Aviable: {{ product.rating.count }}</span>
+      <span>Rating: {{ product.rating.rate }}</span>
+    </div>
+  </div>
+</div>
